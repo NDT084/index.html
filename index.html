@@ -366,14 +366,18 @@
                         </div>
                     </div>
                     <div>
-                        <!-- Formulaire de contact (notez qu'il s'agit d'un exemple statique et n'envoie pas d'e-mail) -->
-                        <form id="contact-form" class="space-y-4">
-                            <input type="text" placeholder="Nom"
+                        <!-- Formulaire de contact (notez qu'il s'agit d'un exemple statique et envoie d'e-mail) -->
+                        <form id="contact-form" class="space-y-4" action="https://formspree.io/f/xrbaobqj"
+                            method="post">
+                            <input type="text" name="Nom" placeholder="Nom" required
                                 class="w-full p-3 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            <input type="email" placeholder="Email"
+
+                            <input type="email" name="Email" placeholder="Email" required
                                 class="w-full p-3 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            <textarea placeholder="Votre message" rows="4"
+
+                            <textarea name="Message" placeholder="Votre message" rows="4"
                                 class="w-full p-3 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+
                             <button type="submit"
                                 class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg transition duration-300">
                                 Envoyer le message
@@ -388,7 +392,7 @@
 
     <!-- Pied de page -->
     <footer class="bg-gray-900 p-6 text-center text-gray-500 text-sm">
-        <p>&copy; 2025 Mon Portfolio. Tous droits réservés.</p>
+        <p>&copy; 2024 Mon Portfolio. Tous droits réservés.</p>
     </footer>
 
     <!-- JavaScript -->
@@ -482,4 +486,3 @@
 </body>
 
 </html>
-
