@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mini E-Commerce</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>🛍️ Bienvenue dans la boutique</h1>
+    {% for produit in produits %}
+        <div class="card">
+            <h3>{{ produit.nom }}</h3>
+            <p>Prix : {{ produit.prix }}€</p>
+            <a href="/ajouter/{{ produit.id }}">🛒 Ajouter au panier</a>
+        </div>
+    {% endfor %}
+    <a class="panier" href="/panier">Voir le panier</a>
+</body>
+</html>
