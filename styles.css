@@ -1,0 +1,510 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* Nouvelle Palette de Couleurs (Dark Theme) */
+:root {
+    --dark-background: #0A0A0A;
+    /* Noir profond, pour un contraste maximum et une base sombre */
+    --dark-surface: #1A1A1A;
+    /* Gris très foncé, doux et moderne pour les arrière-plans d'éléments */
+    --text-primary: #E0E0E0;
+    /* Blanc cassé pour le texte principal, haute lisibilité */
+    --text-secondary: #B0B0B0;
+    /* Gris clair pour les textes secondaires et descriptifs */
+    --accent-main: #00C896;
+    /* Vert d'eau vibrant et moderne pour les accents */
+    --accent-hover: #00E0A7;
+    /* Nuance plus claire du vert pour les effets au survol */
+    --border-color: #333333;
+    /* Gris foncé subtil pour les bordures et séparateurs */
+    --card-background: #1F1F1F;
+    /* Fond des cartes, légèrement plus clair que la surface principale */
+    --shadow-light: rgba(0, 0, 0, 0.3);
+    /* Ombre douce pour les éléments en surbrillance */
+    --shadow-accent: rgba(0, 200, 150, 0.4);
+    /* Ombre avec teinte d'accent pour les hovers */
+    --shadow-accent-hover: rgba(0, 224, 167, 0.6);
+    /* Ombre plus intense pour les hovers actifs */
+}
+
+/* Styles globaux pour le corps */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--dark-background);
+    /* Utilisation de la couleur d'arrière-plan principale */
+    color: var(--text-primary);
+    /* Couleur de texte principale */
+    line-height: 1.6;
+    overflow-x: hidden;
+    /* Empêche le défilement horizontal */
+}
+
+/* Header (Barre de navigation en haut) */
+header {
+    background-color: var(--dark-surface);
+    /* Fond du header */
+    border-bottom: 1px solid var(--border-color);
+    /* Bordure subtile en bas du header */
+    color: var(--text-primary);
+    /* Couleur de texte par défaut pour le header */
+}
+
+/* Effet de défilement pour le header */
+header.scrolled {
+    background-color: rgba(26, 26, 26, 0.9);
+    /* Légère transparence au défilement */
+    backdrop-filter: blur(5px);
+    /* Effet de flou derrière le header */
+}
+
+/* Liens de navigation principaux */
+.nav-link {
+    position: relative;
+    padding-bottom: 8px;
+    transition: color 0.3s ease;
+    font-weight: 500;
+    color: var(--text-secondary);
+    /* Couleur par défaut des liens */
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-main);
+    /* Couleur d'accent pour le soulignement */
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--accent-hover);
+    /* Couleur d'accent au survol */
+}
+
+.nav-link:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* État actif du lien de navigation */
+.nav-link.active {
+    color: var(--accent-main);
+    /* Couleur d'accent pour le lien actif */
+    font-weight: 700;
+}
+
+.nav-link.active::after {
+    width: 100%;
+    left: 0;
+    background-color: var(--accent-main);
+}
+
+/* Logo (DT.) */
+.logo-link {
+    color: var(--text-primary);
+    /* Couleur du texte du logo */
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.logo-link::after {
+    background-color: var(--accent-main);
+    /* Soulignement du logo */
+}
+
+/* Menu mobile */
+#mobile-menu {
+    background-color: var(--dark-surface);
+    /* Fond du menu mobile */
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.nav-link-mobile {
+    color: var(--text-secondary);
+    /* Couleur des liens du menu mobile */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-link-mobile:hover {
+    background-color: var(--card-background);
+    /* Fond au survol */
+    color: var(--accent-hover);
+}
+
+.nav-link-mobile.active {
+    background-color: var(--card-background);
+    color: var(--accent-main);
+    font-weight: 600;
+}
+
+/* Bouton du menu mobile (Icône burger) */
+#menu-btn svg {
+    transition: transform 0.3s ease, color 0.3s ease;
+    color: var(--text-primary);
+}
+
+#menu-btn:hover svg {
+    transform: rotate(90deg);
+    color: var(--accent-hover);
+}
+
+/* Animations d'apparition */
+.animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Photo de profil (Section Accueil) */
+.profile-picture-container {
+    box-shadow: 0 0 0 6px rgba(0, 200, 150, 0.3);
+    /* Halo subtil */
+    transition: box-shadow 0.3s ease;
+}
+
+.profile-picture-container:hover {
+    box-shadow: 0 0 0 8px rgba(0, 224, 167, 0.5);
+    /* Halo plus prononcé au survol */
+}
+
+/* Texte animé "typed-text" */
+#typed-text {
+    color: var(--accent-main);
+    /* S'assure que le texte animé utilise la couleur d'accent */
+}
+
+/* Bouton principal (Ex: "Voir mes projets") */
+.btn-primary {
+    background: linear-gradient(45deg, var(--accent-main), var(--accent-hover));
+    /* Dégradé de l'accent */
+    color: var(--dark-background);
+    /* Texte foncé sur le bouton clair pour un contraste optimal */
+    font-weight: bold;
+    padding: 1rem 2.5rem;
+    border-radius: 9999px;
+    box-shadow: 0 5px 15px var(--shadow-accent);
+    /* Ombre avec l'accent */
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 20px var(--shadow-accent-hover);
+    /* Ombre plus intense au survol */
+}
+
+/* Conteneurs de section (À Propos, Compétences, Certifications, Contact) */
+.section-card {
+    background-color: var(--dark-surface);
+    /* Fond des sections */
+    border: 1px solid var(--border-color);
+    border-top: 2px solid var(--border-color);
+    /* Bordure supérieure */
+    border-left: 2px solid var(--border-color);
+    /* Bordure gauche pour l'effet de profondeur */
+    position: relative;
+}
+
+/* Effet de coin sur les sections (au survol) */
+.section-card::before,
+.section-card::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--accent-main);
+    /* Bordure d'accent pour les coins */
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.section-card::before {
+    top: -5px;
+    left: -5px;
+    border-right: none;
+    border-bottom: none;
+    transform: translate(-10px, -10px);
+}
+
+.section-card::after {
+    bottom: -5px;
+    right: -5px;
+    border-left: none;
+    border-top: none;
+    transform: translate(10px, 10px);
+}
+
+.section-card:hover::before {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+.section-card:hover::after {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* Titres de section (H2) */
+.section-title {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+    margin-bottom: 2rem;
+    color: var(--text-primary);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    bottom: 0;
+    width: 60%;
+    height: 4px;
+    background-color: var(--accent-main);
+    border-radius: 9999px;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.section-title:hover::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+/* Contenu de la section "À Propos" */
+#a-propos-page strong {
+    color: var(--text-primary);
+    /* Met en évidence les mots clés */
+}
+
+#a-propos-page p,
+#a-propos-page ul {
+    color: var(--text-secondary);
+    /* Texte secondaire */
+}
+
+/* Image de la section "À Propos" */
+.about-image-container {
+    border: 3px solid var(--accent-main);
+    /* Bordure d'accent */
+    box-shadow: 0 0 20px var(--shadow-accent);
+    /* Légère lueur */
+}
+
+/* Cartes de compétences */
+.skill-card {
+    background-color: var(--card-background);
+    /* Fond des cartes */
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 10px var(--shadow-light);
+    transition: all 0.3s ease-in-out;
+    border: 1px solid var(--border-color);
+}
+
+.skill-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 20px var(--shadow-accent), 0 0 15px var(--accent-main);
+    /* Glow effect */
+    border-color: var(--accent-main);
+}
+
+.skill-card h4 {
+    color: var(--text-primary);
+}
+
+.skill-card p {
+    color: var(--text-secondary);
+}
+
+.skill-card svg {
+    color: var(--accent-main);
+    /* Icônes des compétences en couleur d'accent */
+}
+
+
+/* Cartes de projets */
+.project-card {
+    background-color: var(--card-background);
+    /* Fond des cartes de projets */
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 10px var(--shadow-light);
+    transition: all 0.3s ease-in-out;
+    border: 1px solid var(--border-color);
+}
+
+.project-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 20px var(--shadow-accent), 0 0 15px var(--accent-main);
+    /* Glow effect */
+    border-color: var(--accent-main);
+}
+
+.project-card h3 {
+    color: var(--text-primary);
+}
+
+.project-card p {
+    color: var(--text-secondary);
+}
+
+/* Badges de technologies */
+.badge {
+    color: var(--dark-background);
+    /* Texte foncé sur les badges */
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.4rem 0.8rem;
+    border-radius: 9999px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    /* Couleurs des badges par défaut si non spécifié, ou spécifiques */
+    background-color: var(--text-secondary);
+}
+
+/* Exemples de couleurs pour les badges (à adapter si tu as beaucoup de technologies) */
+.badge-blue {
+    background-color: #3B82F6;
+}
+
+/* Tailwind blue-500 */
+.badge-green {
+    background-color: #22C55E;
+}
+
+/* Tailwind green-500 */
+.badge-yellow {
+    background-color: #EAB308;
+}
+
+/* Tailwind yellow-500 */
+.badge-purple {
+    background-color: #A855F7;
+}
+
+/* Tailwind purple-500 */
+.badge-gray {
+    background-color: #6B7280;
+}
+
+/* Tailwind gray-500 */
+.badge-indigo {
+    background-color: #6366F1;
+}
+
+/* Tailwind indigo-500 */
+.badge-red {
+    background-color: #EF4444;
+}
+
+/* Tailwind red-500 */
+.badge-orange {
+    background-color: #F97316;
+}
+
+/* Tailwind orange-500 */
+.badge-pink {
+    background-color: #EC4899;
+}
+
+/* Tailwind pink-500 */
+
+
+/* Cartes de certifications */
+.certification-card {
+    background-color: var(--card-background);
+    /* Fond des cartes de certifications */
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 10px var(--shadow-light);
+    transition: all 0.3s ease-in-out;
+    border: 1px solid var(--border-color);
+}
+
+.certification-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 20px var(--shadow-accent), 0 0 15px var(--accent-main);
+    /* Glow effect */
+    border-color: var(--accent-main);
+}
+
+.certification-card h3 {
+    color: var(--text-primary);
+}
+
+.certification-card p {
+    color: var(--text-secondary);
+}
+
+.link-certification {
+    color: var(--accent-main);
+    /* Couleur du lien de certification */
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.link-certification:hover {
+    color: var(--accent-hover);
+    transform: translateX(5px);
+}
+
+/* Section contact */
+#contact-page p {
+    color: var(--text-secondary);
+}
+
+.contact-info .text-lg {
+    color: var(--text-secondary);
+}
+
+.contact-info svg {
+    color: var(--accent-main);
+    /* Icônes de contact en couleur d'accent */
+}
+
+/* Boutons sociaux (Gmail, LinkedIn, GitHub) */
+.social-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    /* Texte blanc sur les boutons sociaux */
+    font-weight: bold;
+    padding: 0.8rem 1.5rem;
+    border-radius: 0.75rem;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    text-decoration: none;
+    box-shadow: 0 3px 8px var(--shadow-light);
+}
+
+.social-button:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-surface);
+    /* Fond du footer */
+    border-top: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    /* Texte du footer */
+}
