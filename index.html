@@ -4,137 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Portfolio</title>
+    <title>Daniel Triomphe NGOMA BOULINGUI</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
-        /* Palette de couleurs professionnelles */
-        :root {
-            --dark-background: #0d1117;
-            /* Noir très sombre */
-            --dark-surface: #161b22;
-            /* Gris très sombre, légèrement plus clair que le fond */
-            --text-color: #c9d1d9;
-            /* Gris clair pour le texte principal */
-            --accent-blue: #58a6ff;
-            /* Bleu éclatant pour les accents */
-            --accent-yellow: #e3b341;
-            /* Jaune doré pour les accents secondaires / hover */
-            --subtle-gray: #21262d;
-            /* Gris subtil pour les éléments comme les cartes de compétences */
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--dark-background);
-            color: var(--text-color);
-            line-height: 1.6;
-            /* Pour que le texte "respire" mieux */
-        }
-
-        /* Titres de section avec ligne stylisée */
-        .section-title {
-            position: relative;
-            display: inline-block;
-            padding-bottom: 10px;
-            /* Ajoute de l'espace sous le titre pour la ligne */
-            margin-bottom: 2rem;
-            /* Plus d'espace sous les titres de section */
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 75%;
-            /* Longueur de la ligne */
-            height: 4px;
-            /* Épaisseur de la ligne */
-            background-color: var(--accent-blue);
-            border-radius: 9999px;
-            /* Extrémités arrondies */
-        }
-
-        /* Styles pour les liens de navigation principaux */
-        .nav-link {
-            position: relative;
-            padding-bottom: 8px;
-            /* Espace pour l'effet de survol */
-            transition: color 0.3s ease, transform 0.3s ease;
-            font-weight: 500;
-            /* Légèrement plus de poids pour les liens */
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent-yellow);
-            /* Ligne de couleur sur le survol */
-            transition: width 0.3s ease, left 0.3s ease;
-        }
-
-        .nav-link:hover {
-            color: var(--accent-yellow);
-            /* Changement de couleur au survol */
-            transform: translateY(-2px);
-            /* Effet de léger soulèvement */
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-            left: 0;
-        }
-
-        /* Styles pour le bouton de menu mobile */
-        #menu-btn svg {
-            transition: transform 0.3s ease, color 0.3s ease;
-        }
-
-        #menu-btn:hover svg {
-            transform: rotate(90deg);
-            /* Rotation au survol */
-            color: var(--accent-yellow);
-        }
-
-        /* Amélioration de l'animation d'apparition */
-        .animate-fade-in {
-            animation: fadeIn 0.8s ease-out forwards;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+    <link href="styles.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 </head>
 
 <body class="antialiased">
 
-    <header class="bg-[var(--dark-surface)] p-4 sticky top-0 z-50 shadow-xl transition-all duration-300">
+    <header class="p-4 sticky top-0 z-50 transition-all duration-300">
         <nav class="container mx-auto flex justify-between items-center px-4 sm:px-6 lg:px-8">
-            <a href="#" class="text-2xl font-bold text-white nav-link">Mon Portfolio</a>
-            <div class="space-x-6 hidden md:block"> <a href="#" class="nav-link text-[var(--text-color)]"
-                    data-page="accueil">Accueil</a>
-                <a href="#" class="nav-link text-[var(--text-color)]" data-page="a-propos">À Propos</a>
-                <a href="#" class="nav-link text-[var(--text-color)]" data-page="competences">Compétences</a>
-                <a href="#" class="nav-link text-[var(--text-color)]" data-page="projets">Projets</a>
-                <a href="#" class="nav-link text-[var(--text-color)]" data-page="certifications">Certifications</a>
-                <a href="#" class="nav-link text-[var(--text-color)]" data-page="contact">Contact</a>
+            <a href="#" class="text-2xl font-extrabold text-white nav-link logo-link">Mon Portfolio</a>
+            <div class="space-x-6 hidden md:block">
+                <a href="#accueil-page" class="nav-link" data-page="accueil">Accueil</a>
+                <a href="#a-propos-page" class="nav-link" data-page="a-propos">À Propos</a>
+                <a href="#competences-page" class="nav-link" data-page="competences">Compétences</a>
+                <a href="#projets-page" class="nav-link" data-page="projets">Projets</a>
+                <a href="#certifications-page" class="nav-link" data-page="certifications">Certifications</a>
+                <a href="#contact-page" class="nav-link" data-page="contact">Contact</a>
             </div>
-            <button id="menu-btn" class="text-[var(--text-color)] md:hidden focus:outline-none">
+            <button id="menu-btn" class="md:hidden focus:outline-none">
                 <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
@@ -142,184 +34,153 @@
                 </svg>
             </button>
         </nav>
-        <div id="mobile-menu" class="md:hidden mt-3 pb-2 bg-[var(--dark-surface)] shadow-md">
-            <a href="#"
-                class="block py-3 px-6 text-base text-[var(--text-color)] hover:bg-[var(--subtle-gray)] hover:text-[var(--accent-yellow)] transition duration-300"
-                data-page="accueil">Accueil</a>
-            <a href="#"
-                class="block py-3 px-6 text-base text-[var(--text-color)] hover:bg-[var(--subtle-gray)] hover:text-[var(--accent-yellow)] transition duration-300"
-                data-page="a-propos">À Propos</a>
-            <a href="#"
-                class="block py-3 px-6 text-base text-[var(--text-color)] hover:bg-[var(--subtle-gray)] hover:text-[var(--accent-yellow)] transition duration-300"
+        <div id="mobile-menu" class="md:hidden mt-3 pb-2 shadow-md">
+            <a href="#accueil-page" class="block py-3 px-6 text-base nav-link-mobile" data-page="accueil">Accueil</a>
+            <a href="#a-propos-page" class="block py-3 px-6 text-base nav-link-mobile" data-page="a-propos">À Propos</a>
+            <a href="#competences-page" class="block py-3 px-6 text-base nav-link-mobile"
                 data-page="competences">Compétences</a>
-            <a href="#"
-                class="block py-3 px-6 text-base text-[var(--text-color)] hover:bg-[var(--subtle-gray)] hover:text-[var(--accent-yellow)] transition duration-300"
-                data-page="projets">Projets</a>
-            <a href="#"
-                class="block py-3 px-6 text-base text-[var(--text-color)] hover:bg-[var(--subtle-gray)] hover:text-[var(--accent-yellow)] transition duration-300"
+            <a href="#projets-page" class="block py-3 px-6 text-base nav-link-mobile" data-page="projets">Projets</a>
+            <a href="#certifications-page" class="block py-3 px-6 text-base nav-link-mobile"
                 data-page="certifications">Certifications</a>
-            <a href="#"
-                class="block py-3 px-6 text-base text-[var(--text-color)] hover:bg-[var(--subtle-gray)] hover:text-[var(--accent-yellow)] transition duration-300"
-                data-page="contact">Contact</a>
+            <a href="#contact-page" class="block py-3 px-6 text-base nav-link-mobile" data-page="contact">Contact</a>
         </div>
     </header>
 
     <main class="container mx-auto px-6 sm:px-8 lg:px-10 py-12">
         <section id="accueil-page" class="py-24 min-h-screen flex flex-col justify-center items-center text-center">
             <div
-                class="relative w-48 h-48 mb-8 rounded-full overflow-hidden border-4 border-[var(--accent-blue)] shadow-2xl animate-fade-in">
-                <img src="image.JPG" alt="" class="w-full h-full object-cover">
+                class="relative w-48 h-48 mb-8 rounded-full overflow-hidden border-4 border-accent-main shadow-2xl animate-fade-in profile-picture-container">
+                <img src="image.JPG" alt="Profil de Daniel Triomphe" class="w-full h-full object-cover">
             </div>
-            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-4 leading-tight animate-fade-in">
-                je suis <span class="text-[var(--accent-blue)]">Daniel Triomphe NGOMA BOULINGUI</span>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-primary mb-4 leading-tight animate-fade-in">
+                Je suis <span class="text-accent-main">Daniel Triomphe NGOMA BOULINGUI</span>
             </h1>
-            <p id="typed-text" class="text-xl md:text-2xl text-[var(--text-color)] mb-10 max-w-2xl mx-auto"></p> <a
-                href="#" data-page="projets"
-                class="bg-[var(--accent-blue)] hover:bg-blue-700 text-white font-bold py-4 px-10 rounded-full shadow-lg transition duration-300 transform hover:scale-105 text-lg">
+            <p id="typed-text" class="text-xl md:text-2xl text-secondary mb-10 max-w-2xl mx-auto"></p>
+            <a href="#projets-page" data-page="projets" class="btn-primary">
                 Voir mes projets
             </a>
         </section>
 
         <section id="a-propos-page" class="py-24 hidden">
-            <div class="bg-[var(--dark-surface)] rounded-3xl p-10 md:p-16 shadow-2xl animate-fade-in">
-                <h2 class="text-4xl font-bold section-title text-center">À Propos de Moi</h2>
+            <div class="rounded-3xl p-10 md:p-16 shadow-2xl animate-fade-in section-card">
+                <h2 class="text-4xl font-bold section-title text-center text-primary">À Propos de Moi</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center mt-10">
                     <div>
-                        <p class="text-lg text-[var(--text-color)] leading-relaxed mb-5">
+                        <p class="text-lg leading-relaxed mb-5 text-secondary">
                             En tant qu'étudiant passionné par les <strong>Systèmes Embarqués</strong> et
-                            <strong>IoT</strong>, je me spécialise
+                            l'<strong>IoT</strong>, je me spécialise
                             dans la conception et la mise en œuvre de dispositifs connectés et de solutions
                             intelligentes.
                         </p>
-                        <p class="text-lg text-[var(--text-color)] leading-relaxed mb-5">
+                        <p class="text-lg leading-relaxed mb-5 text-secondary">
                             Mon objectif est de fusionner le monde physique et numérique en créant des systèmes fiables
                             et efficaces, que ce soit pour la domotique, les capteurs environnementaux ou la robotique.
-                            "Et tout ça, A ISI😐"
+                            Je mets en pratique ces compétences au sein de l'Institut Supérieur d'Informatique (ISI).
                         </p>
-                        <ul class="space-y-3 text-[var(--text-color)]">
-                            <li><strong class="text-white">Domaines d'intérêt :</strong> Microcontrôleurs, Capteurs,
+                        <ul class="space-y-3 text-secondary">
+                            <li><strong class="text-primary">Domaines d'intérêt :</strong> Microcontrôleurs, Capteurs,
                                 Réseaux sans fil (LoRaWAN, Zigbee), Cloud IoT, Sécurité des systèmes.</li>
                         </ul>
                     </div>
-                    <div class="flex justify-center mt-8 md:mt-0"></div>
-                    <div
-                        class="relative w-52 h-52 xs:w-64 xs:h-64 sm:w-72 sm:h-72 rounded-2xl overflow-hidden shadow-xl transform rotate-3 hover:rotate-0 transition-transform duration-500 bg-[var(--subtle-gray)] flex items-center justify-center text-white text-3xl">
-                        <img src="Random 🤔🤩.jpeg" alt="" class="object-cover w-full h-full">
+                    <div class="flex justify-center mt-8 md:mt-0">
+                        <div
+                            class="relative w-52 h-52 xs:w-64 xs:h-64 sm:w-72 sm:h-72 rounded-2xl overflow-hidden shadow-xl transform rotate-3 hover:rotate-0 transition-transform duration-500 flex items-center justify-center about-image-container">
+                            <img src="Random 🤔🤩.jpeg" alt="Image illustrative" class="object-cover w-full h-full">
+                        </div>
                     </div>
                 </div>
-            </div>
             </div>
         </section>
 
         <section id="competences-page" class="py-24 hidden">
-            <div class="bg-[var(--dark-surface)] rounded-3xl p-10 md:p-16 shadow-2xl animate-fade-in">
-                <h2 class="text-4xl font-bold section-title text-center">Mes Compétences Techniques</h2>
+            <div class="rounded-3xl p-10 md:p-16 shadow-2xl animate-fade-in section-card">
+                <h2 class="text-4xl font-bold section-title text-center text-primary">Mes Compétences Techniques</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 text-center mt-10">
-                    <div
-                        class="bg-[var(--subtle-gray)] p-6 rounded-2xl transition duration-300 transform hover:scale-105 shadow-md hover:shadow-xl border border-transparent hover:border-[var(--accent-blue)] flex flex-col items-center justify-center">
-                        <svg class="w-16 h-16 mb-4 text-[var(--accent-blue)]" fill="currentColor" viewBox="0 0 24 24"
+                    <div class="skill-card">
+                        <svg class="w-16 h-16 mb-4 text-accent-main" fill="currentColor" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm0 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16zm-1 4h2v5h-2V8zm0 7h2v2h-2v-2z" />
                         </svg>
-                        <h4 class="mt-2 text-white font-semibold text-lg">Programmation C/C++</h4>
-                        <p class="text-[var(--text-color)] text-sm mt-1">Développement bas niveau et embarqué.</p>
+                        <h4 class="mt-2 text-primary font-semibold text-lg">Programmation C/C++</h4>
+                        <p class="text-sm mt-1 text-secondary">Développement bas niveau et embarqué.</p>
                     </div>
 
-                    <div
-                        class="bg-[var(--subtle-gray)] p-6 rounded-2xl transition duration-300 transform hover:scale-105 shadow-md hover:shadow-xl border border-transparent hover:border-[var(--accent-blue)] flex flex-col items-center justify-center">
-                        <svg class="w-16 h-16 mb-4 text-[var(--accent-blue)]" fill="currentColor" viewBox="0 0 24 24"
+                    <div class="skill-card">
+                        <svg class="w-16 h-16 mb-4 text-accent-main" fill="currentColor" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M12 12c-2.761 0-5 2.239-5 5s2.239 5 5 5 5-2.239 5-5-2.239-5-5-5zm0-10c-5.523 0-10 4.477-10 10 0 2.656 1.05 5.064 2.756 6.81l-1.851 1.851 1.414 1.414 1.851-1.851c1.746 1.706 4.154 2.756 6.81 2.756 5.523 0 10-4.477 10-10S17.523 2 12 2zm0 2a8 8 0 0 1 8 8 8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8zM7 16h10v2H7z" />
                         </svg>
-                        <h4 class="mt-2 text-white font-semibold text-lg">Python</h4>
-                        <p class="text-[var(--text-color)] text-sm mt-1">Scripting, automatisation et analyse de
-                            données.</p>
+                        <h4 class="mt-2 text-primary font-semibold text-lg">Python</h4>
+                        <p class="text-sm mt-1 text-secondary">Scripting, automatisation et analyse de données.</p>
                     </div>
 
-                    <div
-                        class="bg-[var(--subtle-gray)] p-6 rounded-2xl transition duration-300 transform hover:scale-105 shadow-md hover:shadow-xl border border-transparent hover:border-[var(--accent-blue)] flex flex-col items-center justify-center">
-                        <svg class="w-16 h-16 mb-4 text-[var(--accent-blue)]" fill="currentColor" viewBox="0 0 24 24"
+                    <div class="skill-card">
+                        <svg class="w-16 h-16 mb-4 text-accent-main" fill="currentColor" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M12 2c-5.523 0-10 4.477-10 10s4.477 10 10 10 10-4.477 10-10-4.477-10-10-10zm0 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16zM9 9h6v6H9V9zm2 2h2v2h-2v-2z" />
                         </svg>
-                        <h4 class="mt-2 text-white font-semibold text-lg">Microcontrôleurs</h4>
-                        <p class="text-[var(--text-color)] text-sm mt-1">Arduino, ESP32, STM32, Raspberry Pi.</p>
+                        <h4 class="mt-2 text-primary font-semibold text-lg">Microcontrôleurs</h4>
+                        <p class="text-sm mt-1 text-secondary">Arduino, ESP32, STM32, Raspberry Pi.</p>
                     </div>
 
-                    <div
-                        class="bg-[var(--subtle-gray)] p-6 rounded-2xl transition duration-300 transform hover:scale-105 shadow-md hover:shadow-xl border border-transparent hover:border-[var(--accent-blue)] flex flex-col items-center justify-center">
-                        <svg class="w-16 h-16 mb-4 text-[var(--accent-blue)]" fill="currentColor" viewBox="0 0 24 24"
+                    <div class="skill-card">
+                        <svg class="w-16 h-16 mb-4 text-accent-main" fill="currentColor" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M21 13h-4v-2h4v2zm-2-7v-.5c0-.276-.224-.5-.5-.5h-3c-.276 0-.5.224-.5.5v.5h-1v-1c0-.276-.224-.5-.5-.5h-3c-.276 0-.5.224-.5.5v1h-1v-.5c0-.276-.224-.5-.5-.5h-3c-.276 0-.5.224-.5.5v.5h-1c-.552 0-1 .448-1 1v12c0 .552.448 1 1 1h20c.552 0 1-.448 1-1v-12c0-.552-.448-1-1-1h-1zm-19 1h16v10H2V7zm10 2c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm-6 0c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm12 0c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2z" />
                         </svg>
-                        <h4 class="mt-2 text-white font-semibold text-lg">Conception de circuits</h4>
-                        <p class="text-[var(--text-color)] text-sm mt-1">Schémas, routage PCB et prototypage.</p>
+                        <h4 class="mt-2 text-primary font-semibold text-lg">Conception de circuits</h4>
+                        <p class="text-sm mt-1 text-secondary">Schémas, routage PCB et prototypage.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="projets-page" class="py-24 hidden">
-            <h2 class="text-4xl font-bold section-title mb-12 text-center">Mes Projets Récents</h2>
+            <h2 class="text-4xl font-bold section-title mb-12 text-center text-primary">Mes Projets Récents</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 animate-fade-in">
-                <div
-                    class="bg-[var(--dark-surface)] rounded-3xl overflow-hidden shadow-xl transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl border border-transparent hover:border-[var(--accent-yellow)]">
+                <div class="project-card">
                     <img src="Garantissez la sécurité de votre entreprise avec notre système de vidéosurveillance.jpeg"
-                        alt="Système de Surveillance Domotique" class="w-full h-56 object-cover">
+                        alt="Système de Surveillance Domotique" class="w-full h-56 object-cover rounded-t-xl">
                     <div class="p-8">
-                        <h3 class="text-2xl font-bold text-white mb-3">Système de Surveillance Domotique</h3>
-                        <p class="text-[var(--text-color)] text-base mb-5">Un système de capteurs pour surveiller la
-                            température,
-                            l'humidité et la lumière d'une pièce, avec des alertes mobiles.</p>
-                        <div class="flex flex-wrap gap-3 mb-5"> <span
-                                class="bg-blue-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Arduino</span>
-                            <span
-                                class="bg-green-700 text-white text-xs font-semibold px-3 py-1 rounded-full">C++</span>
-                            <span
-                                class="bg-yellow-700 text-white text-xs font-semibold px-3 py-1 rounded-full">MQTT</span>
+                        <h3 class="text-2xl font-bold text-primary mb-3">Système de Surveillance Domotique</h3>
+                        <p class="mb-5 text-secondary">Un système de capteurs pour surveiller la température, l'humidité
+                            et la lumière d'une pièce, avec des alertes mobiles.</p>
+                        <div class="flex flex-wrap gap-3 mb-5">
+                            <span class="badge badge-blue">Arduino</span>
+                            <span class="badge badge-green">C++</span>
+                            <span class="badge badge-yellow">MQTT</span>
                         </div>
                     </div>
                 </div>
-                <div
-                    class="bg-[var(--dark-surface)] rounded-3xl overflow-hidden shadow-xl transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl border border-transparent hover:border-[var(--accent-yellow)]">
+                <div class="project-card">
                     <img src="Kit de bras robotique 6 Dof, bras robotique de programmation, kit de bricolage pour Robot Arduino.jpeg"
-                        alt="Bras Robotique Télécommandé" class="w-full h-56 object-cover">
+                        alt="Bras Robotique Télécommandé" class="w-full h-56 object-cover rounded-t-xl">
                     <div class="p-8">
-                        <h3 class="text-2xl font-bold text-white mb-3">Bras Robotique Télécommandé</h3>
-                        <p class="text-[var(--text-color)] text-base mb-5">Conception d'un bras robotique contrôlé via
-                            une
-                            application web pour des tâches de manipulation précises.</p>
+                        <h3 class="text-2xl font-bold text-primary mb-3">Bras Robotique Télécommandé</h3>
+                        <p class="mb-5 text-secondary">Conception d'un bras robotique contrôlé via une application web
+                            pour des tâches de manipulation précises.</p>
                         <div class="flex flex-wrap gap-3 mb-5">
-                            <span
-                                class="bg-purple-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Python</span>
-                            <span class="bg-gray-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Raspberry
-                                Pi</span>
-                            <span
-                                class="bg-indigo-700 text-white text-xs font-semibold px-3 py-1 rounded-full">IoT</span>
+                            <span class="badge badge-purple">Python</span>
+                            <span class="badge badge-gray">Raspberry Pi</span>
+                            <span class="badge badge-indigo">IoT</span>
                         </div>
-
                     </div>
                 </div>
-                <div
-                    class="bg-[var(--dark-surface)] rounded-3xl overflow-hidden shadow-xl transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl border border-transparent hover:border-[var(--accent-yellow)]">
+                <div class="project-card">
                     <img src="Find Your Perfect AC Size_ Room Air Conditioner Calculator Guide.jpeg"
-                        alt="Capteur de Qualité de l'Air Connecté" class="w-full h-56 object-cover">
+                        alt="Capteur de Qualité de l'Air Connecté" class="w-full h-56 object-cover rounded-t-xl">
                     <div class="p-8">
-                        <h3 class="text-2xl font-bold text-white mb-3">Capteur de Qualité de l'Air Connecté</h3>
-                        <p class="text-[var(--text-color)] text-base mb-5">Développement d'un dispositif de mesure de la
-                            pollution
-                            avec transmission des données via LoRaWAN vers une plateforme cloud.</p>
+                        <h3 class="text-2xl font-bold text-primary mb-3">Capteur de Qualité de l'Air Connecté</h3>
+                        <p class="mb-5 text-secondary">Développement d'un dispositif de mesure de la pollution avec
+                            transmission des données via LoRaWAN vers une plateforme cloud.</p>
                         <div class="flex flex-wrap gap-3 mb-5">
-                            <span
-                                class="bg-red-700 text-white text-xs font-semibold px-3 py-1 rounded-full">LoRaWAN</span>
-                            <span
-                                class="bg-orange-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Cloud</span>
-                            <span
-                                class="bg-pink-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Electronique</span>
+                            <span class="badge badge-red">LoRaWAN</span>
+                            <span class="badge badge-orange">Cloud</span>
+                            <span class="badge badge-pink">Electronique</span>
                         </div>
                     </div>
                 </div>
@@ -327,132 +188,104 @@
         </section>
 
         <section id="certifications-page" class="py-24 hidden">
-            <div class="bg-[var(--dark-surface)] rounded-3xl p-10 md:p-16 shadow-2xl animate-fade-in">
-                <h2 class="text-4xl font-bold section-title text-center">Mes Certifications</h2>
+            <div class="rounded-3xl p-10 md:p-16 shadow-2xl animate-fade-in section-card">
+                <h2 class="text-4xl font-bold section-title text-center text-primary">Mes Certifications</h2>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
-                    <div
-                        class="bg-[var(--subtle-gray)] p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-transparent hover:border-[var(--accent-blue)]">
-                        <h3 class="text-xl font-semibold text-white mb-3">🎓 Certification ITE 7.02</h3>
-                        <p class="text-[var(--text-color)] text-sm mb-4">Acquise sur Cisco Networking Academy (2025).
-                        </p>
+                    <div class="certification-card">
+                        <h3 class="text-xl font-semibold text-primary mb-3">🎓 Certification ITE 7.02</h3>
+                        <p class="text-sm mb-4 text-secondary">Acquise sur Cisco Networking Academy (2025).</p>
                         <a href="https://www.netacad.com/fr/certificates?issuanceId=d95c4cbc-4354-485f-a7ca-c88dcf4eec46"
-                            target="_blank"
-                            class="text-[var(--accent-blue)] hover:text-blue-300 font-medium transition">
+                            target="_blank" class="link-certification">
                             Voir le certificat →
                         </a>
                     </div>
-
-                    <div
-                        class="bg-[var(--subtle-gray)] p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-transparent hover:border-[var(--accent-blue)]">
-                        <h3 class="text-xl font-semibold text-white mb-3">🎓 Certification Python Essential 1</h3>
-                        <p class="text-[var(--text-color)] text-sm mb-4">Acquise sur Cisco Networking Academy (2025).
-                        </p>
+                    <div class="certification-card">
+                        <h3 class="text-xl font-semibold text-primary mb-3">🎓 Certification Python Essential 1</h3>
+                        <p class="text-sm mb-4 text-secondary">Acquise sur Cisco Networking Academy (2025).</p>
                         <a href="https://www.netacad.com/fr/certificates?issuanceId=b7e560bb-f7d5-43ab-a309-c005d3fd5878"
-                            target="_blank"
-                            class="text-[var(--accent-blue)] hover:text-blue-300 font-medium transition">
+                            target="_blank" class="link-certification">
                             Voir le certificat →
                         </a>
                     </div>
-
-                    <div
-                        class="bg-[var(--subtle-gray)] p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-transparent hover:border-[var(--accent-blue)]">
-                        <h3 class="text-xl font-semibold text-white mb-3">🎓 Certification Introduction à la
+                    <div class="certification-card">
+                        <h3 class="text-xl font-semibold text-primary mb-3">🎓 Certification Introduction à la
                             cybersécurité</h3>
-                        <p class="text-[var(--text-color)] text-sm mb-4">Acquise sur Cisco Networking Academy (2025).
-                        </p>
+                        <p class="text-sm mb-4 text-secondary">Acquise sur Cisco Networking Academy (2025).</p>
                         <a href="https://www.netacad.com/fr/certificates?issuanceId=a6f0d008-e72c-434d-9d47-6873892c208f"
-                            target="_blank"
-                            class="text-[var(--accent-blue)] hover:text-blue-300 font-medium transition">
+                            target="_blank" class="link-certification">
                             Voir le certificat →
                         </a>
                     </div>
-
-                    <div
-                        class="bg-[var(--subtle-gray)] p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-transparent hover:border-[var(--accent-blue)]">
-                        <h3 class="text-xl font-semibold text-white mb-3">🎓 Certification Notion de base sur les
+                    <div class="certification-card">
+                        <h3 class="text-xl font-semibold text-primary mb-3">🎓 Certification Notion de base sur les
                             réseaux</h3>
-                        <p class="text-[var(--text-color)] text-sm mb-4">Acquise sur Cisco Networking Academy (2025).
-                        </p>
+                        <p class="text-sm mb-4 text-secondary">Acquise sur Cisco Networking Academy (2025).</p>
                         <a href="https://www.netacad.com/fr/certificates?issuanceId=d39d4155-11c5-4faa-a544-af6533b160e8"
-                            target="_blank"
-                            class="text-[var(--accent-blue)] hover:text-blue-300 font-medium transition">
+                            target="_blank" class="link-certification">
                             Voir le certificat →
                         </a>
                     </div>
-
-                    <div
-                        class="bg-[var(--subtle-gray)] p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-transparent hover:border-[var(--accent-blue)]">
-                        <h3 class="text-xl font-semibold text-white mb-3">🎓 Certification JavaScript Essentials 1</h3>
-                        <p class="text-[var(--text-color)] text-sm mb-4">Acquise sur Cisco Networking Academy (2025).
-                        </p>
+                    <div class="certification-card">
+                        <h3 class="text-xl font-semibold text-primary mb-3">🎓 Certification JavaScript Essentials 1
+                        </h3>
+                        <p class="text-sm mb-4 text-secondary">Acquise sur Cisco Networking Academy (2025).</p>
                         <a href="https://www.netacad.com/fr/certificates?issuanceId=85a3c824-17de-4fda-9724-2c97c1ddd90c"
-                            target="_blank"
-                            class="text-[var(--accent-blue)] hover:text-blue-300 font-medium transition">
+                            target="_blank" class="link-certification">
                             Voir le certificat →
                         </a>
                     </div>
-
-                    <div
-                        class="bg-[var(--subtle-gray)] p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-transparent hover:border-[var(--accent-blue)]">
-                        <h3 class="text-xl font-semibold text-white mb-3">🎓 Certification Introduction à l'IoT et la tranformation
-                            digitale</h3>
-                        <p class="text-[var(--text-color)] text-sm mb-4">Acquise sur Cisco Networking Academy (2025).
-                        </p>
+                    <div class="certification-card">
+                        <h3 class="text-xl font-semibold text-primary mb-3">🎓 Certification Introduction à l'IoT et la
+                            transformation digitale</h3>
+                        <p class="text-sm mb-4 text-secondary">Acquise sur Cisco Networking Academy (2025).</p>
                         <a href="https://www.netacad.com/fr/certificates?issuanceId=419fe4b4-c745-492d-90b6-8db7421f2aa2"
-                            target="_blank"
-                            class="text-[var(--accent-blue)] hover:text-blue-300 font-medium transition">
+                            target="_blank" class="link-certification">
                             Voir le certificat →
                         </a>
                     </div>
-
                 </div>
             </div>
         </section>
 
         <section id="contact-page" class="py-24 hidden">
-            <div class="bg-[var(--dark-surface)] rounded-3xl p-10 md:p-16 shadow-2xl animate-fade-in">
-                <h2 class="text-4xl font-bold section-title text-center">Contactez-Moi</h2>
+            <div class="rounded-3xl p-10 md:p-16 shadow-2xl animate-fade-in section-card">
+                <h2 class="text-4xl font-bold section-title text-center text-primary">Contactez-Moi</h2>
                 <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center mt-10">
                     <div>
-                        <p class="text-lg text-[var(--text-color)] leading-relaxed mb-6">
+                        <p class="text-lg leading-relaxed mb-6 text-secondary">
                             Vous souhaitez discuter d'un projet ou d'opportunités professionnelles ? N'hésitez pas à me
                             contacter !
                         </p>
-                        <div class="space-y-4 text-[var(--text-color)]">
-                            <div class="flex items-center">
-                                <svg class="w-7 h-7 mr-3 text-[var(--accent-blue)]" fill="currentColor"
-                                    viewBox="0 0 24 24">
+                        <div class="space-y-4">
+                            <div class="flex items-center text-secondary">
+                                <svg class="w-7 h-7 mr-3 text-accent-main" fill="currentColor" viewBox="0 0 24 24">
                                     <path
                                         d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm0 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16zm-1 4h2v5h-2V8zm0 7h2v2h-2v-2z">
                                     </path>
                                 </svg>
                                 <span class="text-lg">ntriomphe50@gmail.com</span>
                             </div>
-                            <div class="flex items-center">
-                                <svg class="w-7 h-7 mr-3 text-[var(--accent-blue)]" fill="currentColor"
-                                    viewBox="0 0 24 24">
+                            <div class="flex items-center text-secondary">
+                                <svg class="w-7 h-7 mr-3 text-accent-main" fill="currentColor" viewBox="0 0 24 24">
                                     <path
                                         d="M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0zm-4-6c-3.313 0-6 2.687-6 6s2.687 6 6 6 6-2.687 6-6-2.687-6-6-6zM18.5 6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zM21 12c0-4.969-4.031-9-9-9s-9 4.031-9 9 4.031 9 9 9 9-4.031 9-9z">
                                     </path>
                                 </svg>
                                 <span class="text-lg">NDT084</span>
                             </div>
-                            <div class="flex items-center">
-                                <svg class="w-7 h-7 mr-3 text-[var(--accent-blue)]" fill="currentColor"
-                                    viewBox="0 0 24 24">
+                            <div class="flex items-center text-secondary">
+                                <svg class="w-7 h-7 mr-3 text-accent-main" fill="currentColor" viewBox="0 0 24 24">
                                     <path
                                         d="M12 2c-5.523 0-10 4.477-10 10s4.477 10 10 10 10-4.477 10-10-4.477-10-10-10zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm-2-8h4v2h-4v-2zm0-4h4v2h-4v-2z" />
                                 </svg>
-                                <span class="text-lg">99 Rue OKM, OUAKAM vrai capitale du sénégal,OUAKAM c'est
-                                    paris</span>
+                                <span class="text-lg">Dakar, Sénégal</span>
                             </div>
                         </div>
                     </div>
                     <div>
                         <div class="flex flex-col space-y-5">
-                            <h3 class="text-2xl font-semibold mb-3">Ou retrouvez-moi sur :</h3>
-                            <a href="mailto:ntriomphe50@gmail.com"
-                                class="flex items-center bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-8 rounded-xl transition duration-300 transform hover:scale-105 text-lg">
+                            <h3 class="text-2xl font-semibold mb-3 text-primary">Ou retrouvez-moi sur :</h3>
+                            <a href="mailto:ntriomphe50@gmail.com" class="social-button bg-red-600 hover:bg-red-700">
                                 <svg class="w-7 h-7 mr-3" fill="currentColor" viewBox="0 0 24 24">
                                     <path
                                         d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
@@ -460,16 +293,15 @@
                                 Contactez-moi par Gmail
                             </a>
                             <a href="https://linkedin.com/in/Ngoma Boulingui Daniel Triomphe" target="_blank"
-                                class="flex items-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-xl transition duration-300 transform hover:scale-105 text-lg">
+                                class="social-button bg-blue-600 hover:bg-blue-700">
                                 <svg class="w-7 h-7 mr-3" fill="currentColor" viewBox="0 0 24 24">
                                     <path
-                                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z">
-                                    </path>
+                                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                                 </svg>
                                 LinkedIn
                             </a>
                             <a href="https://github.com/NDT084" target="_blank"
-                                class="flex items-center bg-gray-900 hover:bg-gray-700 text-white font-bold py-4 px-8 rounded-xl transition duration-300 transform hover:scale-105 text-lg">
+                                class="social-button bg-gray-900 hover:bg-gray-700">
                                 <svg class="w-7 h-7 mr-3" fill="currentColor" viewBox="0 0 24 24">
                                     <path
                                         d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.835 2.809 1.305 3.492.997.107-.775.418-1.305.762-1.605-2.665-.304-5.467-1.334-5.467-5.931 0-1.311.465-2.381 1.236-3.221-.124-.303-.535-1.524.118-3.176 0 0 1.008-.322 3.301 1.23a11.597 11.597 0 0 1 6 0c2.293-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.771.84 1.236 1.911 1.236 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.197-6.091 8.197-11.385C24 5.373 18.627 0 12 0z" />
@@ -483,96 +315,12 @@
         </section>
     </main>
 
-    <footer class="bg-gray-900 p-8 text-center text-[var(--text-color)] text-base">
-        <p>&copy; 2025 Mon Portfolio. Tous droits réservés.</p>
+    <footer class="bg-dark-surface p-8 text-center text-secondary text-base">
+        <p>&copy; 2025 Daniel NGOMA. Tous droits réservés.</p>
     </footer>
 
-    <script>
-        // Fonction pour animer le texte sur la page d'accueil
-        const typedTextSpan = document.getElementById("typed-text");
-        const typingStrings = ["Étudiant en Systèmes Embarqués", "Développeur IoT", "Passionné par l'Électronique", " Créateur de Solutions Connectées"];
-        let stringIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        let typingInterval;
+    <script src="main.js"></script>
 
-        function type() {
-            const currentString = typingStrings[stringIndex];
-            const currentText = isDeleting
-                ? currentString.substring(0, charIndex - 1)
-                : currentString.substring(0, charIndex + 1);
-
-            typedTextSpan.textContent = currentText;
-
-            if (!isDeleting && charIndex < currentString.length) {
-                charIndex++;
-                typingInterval = setTimeout(type, 100);
-            } else if (isDeleting && charIndex > 0) {
-                charIndex--;
-                typingInterval = setTimeout(type, 50);
-            } else {
-                isDeleting = !isDeleting;
-                stringIndex = !isDeleting ? (stringIndex + 1) % typingStrings.length : stringIndex;
-                typingInterval = setTimeout(type, 1000);
-            }
-        }
-
-        // Fonction pour gérer l'affichage des sections
-        const pages = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('a[data-page]');
-        const desktopNavLinks = document.querySelectorAll('.md\\:block .nav-link');
-        const mobileNavLinks = document.querySelectorAll('#mobile-menu .nav-link-mobile');
-
-
-        function updateActiveLink(pageId) {
-            navLinks.forEach(link => {
-                link.classList.remove('font-bold', 'text-[var(--accent-yellow)]');
-                link.classList.add('text-[var(--text-color)]');
-            });
-            const activeLinks = document.querySelectorAll(`a[data-page="${pageId}"]`);
-            activeLinks.forEach(link => {
-                link.classList.add('font-bold', 'text-[var(--accent-yellow)]');
-                link.classList.remove('text-[var(--text-color)]');
-            });
-        }
-
-        function showPage(pageId) {
-            pages.forEach(page => {
-                page.classList.add('hidden');
-                page.classList.remove('animate-fade-in');
-            });
-            const activePage = document.getElementById(pageId);
-            if (activePage) {
-                activePage.classList.remove('hidden');
-                activePage.classList.add('animate-fade-in');
-            }
-        }
-
-        navLinks.forEach(link => {
-            link.addEventListener('click', (event) => {
-                event.preventDefault();
-                const pageId = link.getAttribute('data-page');
-                showPage(pageId + '-page');
-                updateActiveLink(pageId);
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        window.onload = function () {
-            showPage('accueil-page');
-            updateActiveLink('accueil');
-            type();
-        };
-
-    </script>
 </body>
 
 </html>
-
